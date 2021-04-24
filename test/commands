@@ -1,0 +1,29 @@
+sudo yum update -y
+sudo yum install java 1.8.0
+java -version
+sudo yum remove java-1.7.0-openjdk
+rpm -qa | grep java
+java -version
+sudo yum install git tree docker -y
+sudo wget –O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo ( DIFFERENT FOR AWS)
+sudo nano /etc/yum.repos.d/jenkins.repo —SKIP —
+sudo rpm ––import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo yum install jenkins
+sudo systemctl daemon-reload
+sudo systemctl start jenkins
+sudo systemctl status jenkins 
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+For AWS ::
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo 
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+	
+	sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+	
+	
+	sudo yum install jenkins java-1.8.0-openjdk-devel -y
+	
+	sudo systemctl start jenkins
+	
+	sudo systemctl status jenkins
